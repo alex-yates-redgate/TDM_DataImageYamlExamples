@@ -30,7 +30,6 @@ Note the backup paths. For example, for MS SQL:
 ```
     backups:
     - path: mssql/AdventureWorks.bak
-
 ``` 
 
 Ensure a native backup is saved to the appropriate location on the fileshare that was set up for your cloning cluster. For example, for MS SQL / AdventureWorks:
