@@ -9,13 +9,12 @@ https://documentation.red-gate.com/redgate-clone/using-the-cli/cli-how-to/creati
 ## Empty containers
 To create an empty image, run one of the following commands:
 
-`    > rgclone create data-image -f ./YAML_Examples/mssql-empty.yml
-
-`    > rgclone create data-image -f ./YAML_Examples/mysql-empty.yml
-
-`    > rgclone create data-image -f ./YAML_Examples/oracle-empty.yml
-
-`    > rgclone create data-image -f ./YAML_Examples/postgres-empty.yml
+```
+    > rgclone create data-image -f ./YAML_Examples/mssql-empty.yml
+    > rgclone create data-image -f ./YAML_Examples/mysql-empty.yml
+    > rgclone create data-image -f ./YAML_Examples/oracle-empty.yml
+    > rgclone create data-image -f ./YAML_Examples/postgres-empty.yml
+```
 
 Note: Some of these have default lifetimes set in the YAML. Check the files for details!
 
@@ -28,14 +27,20 @@ To create an image from a backup, first, check the YAML file for your RDBMS:
 
 Note the backup paths. For example, for MS SQL:
 
-`    backups:
+```
+    backups:
+    - path: mssql/AdventureWorks.bak
 
-`    - path: mssql/AdventureWorks.bak
+``` 
 
 Ensure a native backup is saved to the appropriate location on the fileshare that was set up for your cloning cluster. For example, for MS SQL / AdventureWorks:
 
- `   //<your_NFS_or_SMB_file_share>/mssql/AdventureWorks.bak
+```
+   //<your_NFS_or_SMB_file_share>/mssql/AdventureWorks.bak
+```
 
 Then, run the rgclone create data-image command, referencing the apropriate YAML file. For example, for MS SQL:
  
-`    > rgclone create data-image -f ./YAML_Examples/mssql-adventureworks.yml
+```
+    > rgclone create data-image -f ./YAML_Examples/mssql-adventureworks.yml
+```
