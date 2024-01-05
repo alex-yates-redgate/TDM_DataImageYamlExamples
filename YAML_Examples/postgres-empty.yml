@@ -1,0 +1,8 @@
+name: postgres-empty
+engine: postgresql
+version: 14
+sourceType: empty
+tags:
+  - rg-uni
+  - empty
+lifetime: 12h

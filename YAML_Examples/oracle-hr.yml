@@ -1,10 +1,13 @@
-sourceType: Backup
 name: oracle-hr
 engine: oracle
 version: 19-ee
+sourceType: Backup
 backups:
   - path: oracle/hr_backup
 lifetime: 24h
+tags:
+  - rg-uni
+  - sample-database
 postScript: |
   -- Change password for the HR user. Enables easy, predictable access, without disclosing production password.
   ALTER USER HR IDENTIFIED BY "SUPER_secret_P455w0rd";

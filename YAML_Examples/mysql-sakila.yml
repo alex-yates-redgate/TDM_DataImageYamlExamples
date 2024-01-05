@@ -1,0 +1,10 @@
+name: mysql-sakila
+engine: mysql
+version: 8
+sourceType: Backup
+initialDatabaseName: Sakila
+backups:
+  - path: "mysql/backup_sakila.sql"
+tags:
+  - rg-uni
+  - sample-database

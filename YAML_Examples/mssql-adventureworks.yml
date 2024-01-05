@@ -1,0 +1,33 @@
+name: AdventureWorks
+engine: mssql
+version: 2019
+sourceType: Backup
+backups:
+  - path: mssql/AdventureWorks.bak
+tags:
+  - rg-uni
+  - sample-database
+preScript: |
+  -- Runs before backup is restored
+  CREATE DATABASE [AdventureWorks_Shadow]
+postScript: |
+  -- Runs after backup is restored
+  -- Creates predictable login for easy access
+  create login [developer]
+  with password = N'NOT_THE_REAL_PASSWORD'
+    , default_database = [master]
+    , default_language = [us_english]
+    , check_expiration = off
+    , check_policy = off;
+  go
+
+  alter server role [sysadmin] add member [developer];
+  go
+
+  use AdventureWorks_Shadow
+  create user [Redgate] for login [Redgate]
+  go
+
+  use AdventureWorks
+  create user [Redgate] for login [Redgate]
+  go

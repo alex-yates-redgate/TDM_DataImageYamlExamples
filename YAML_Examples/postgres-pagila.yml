@@ -1,0 +1,18 @@
+name: postgres-pagila
+engine: postgresql
+version: 14
+sourceType: backup
+initialDatabaseName: pagila
+tags:
+  - rg-uni
+  - sample-database
+lifetime: 12h
+backups:
+  - path: postgres/dump-pagila.sqls
+preScript: |
+  -- Code runs before backups are restored
+postScript: |
+  -- Code runs after backups are restored
+
+  -- Create a super user for easy, predictable admin access to containers
+  CREATE ROLE developer WITH LOGIN SUPERUSER PASSWORD 'not_the_real_password';

@@ -1,0 +1,7 @@
+name: oracle-empty
+engine: oracle
+version: 19-ee
+sourceType: empty
+tags:
+  - rg-uni
+  - empty

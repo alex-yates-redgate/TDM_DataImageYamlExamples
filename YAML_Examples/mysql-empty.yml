@@ -1,8 +1,8 @@
-name: empty-mysql
+name: mysql-empty
 engine: mysql
 version: 8
 sourceType: empty
 tags:
-  - dev
+  - rg-uni
   - empty
 lifetime: 12h

@@ -1,0 +1,8 @@
+name: mssql-empty
+engine: mssql
+version: 2022
+sourceType: empty
+tags:
+  - rg-uni
+  - empty
+lifetime: 0
