@@ -1,0 +1,16 @@
+name: backup-image
+engine: mssql
+version: 2019
+sourceType: backup
+initialDatabaseName: AdventureWorks
+tags:
+  - production
+  - 2019-backups
+lifetime: 12h
+backups:
+  - path: bak/AdventureWorks.bak
+  - path: bak/sheep.bak
+preScript: |
+  CREATE DATABASE prescript
+postScript: |
+  CREATE TABLE [AdventureWorksLT2019].[dbo].[Sheep] (id INT)
